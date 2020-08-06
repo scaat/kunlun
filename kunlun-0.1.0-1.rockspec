@@ -11,7 +11,14 @@ Kunlun is a dynamic, high-performance API Gateway. Provides rich traffic managem
    homepage = "https://github.com/scaat/kunlun",
    license = "*** please specify a license ***"
 }
+
+dependencies = {
+    "lua-resty-template=1.9-1"
+}
+
 build = {
    type = "builtin",
-   modules = {}
+   modules = {
+        ["templates.nginx"] = "templates/nginx.lua"
+   }
 }
