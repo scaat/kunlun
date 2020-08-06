@@ -1,6 +1,7 @@
 #!/usr/bin/env resty
 local template = require("resty.template")
 local nginx_tmp = require("templates/nginx")
+
 local _M = {}
 
 local script_path = debug.getinfo(1).source:sub(2)
@@ -114,9 +115,8 @@ if not cmd_action then
 end
 
 if not _M[cmd_action] then
-    print("invalid argument: ", cmd_action, "\n")
-    return
+    print("invalid action: ", cmd_action, "\n")
+    return _M.help()
 end
-
 
 _M[cmd_action](arg[2])
